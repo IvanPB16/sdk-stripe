@@ -61,10 +61,10 @@ public class CheckoutActivity extends AppCompatActivity {
 
             // Later, you will need to attach the PaymentMethod to the Customer it belongs to.
             // This example collects the customer's email to know which customer the PaymentMethod belongs to, but your app might use an account id, session cookie, etc.
-            EditText emailInput = findViewById(R.id.emailInput);
-            Log.d("Prueba card emailInput", "emailInput " + emailInput);
+            EditText nameInput = findViewById(R.id.nameInput);
+            Log.d("Prueba card emailInput", "emailInput " + nameInput);
             PaymentMethod.BillingDetails billingDetails = (new PaymentMethod.BillingDetails.Builder())
-                    .setEmail(emailInput.getText().toString())
+                    .setName(nameInput.getText().toString())
                     .build();
             Log.d("Prueba card billingDetails", "billingDetails " + billingDetails);
             if (card != null) {
@@ -73,7 +73,7 @@ public class CheckoutActivity extends AppCompatActivity {
                 PaymentMethodCreateParams paymentMethodParams = PaymentMethodCreateParams
                         .create(card, billingDetails);
                 Log.d("Prueba card paymentMethodParams", "paymentMethodParams " + paymentMethodParams.toString());
-                ConfirmSetupIntentParams confirmParams = ConfirmSetupIntentParams.create(paymentMethodParams, "seti_1NlDLqHVWg5sdyHq8xxDLB1G_secret_OYJz5EGQrxL5hgflJyazyPFwucLN68e");
+                ConfirmSetupIntentParams confirmParams = ConfirmSetupIntentParams.create(paymentMethodParams, "seti_1NlEFdHVWg5sdyHqCvHr8yrs_secret_OYKvDC1jJPfxk9BRP964OSGtIbyYIHw");
                 Log.d("Prueba confirmParams", "confirmParams " + confirmParams);
                 paymentLauncher.confirm(confirmParams);
             }
